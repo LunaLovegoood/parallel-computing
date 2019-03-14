@@ -49,8 +49,9 @@ class Matrix {
   void fill(const double &arg);
   void fill_random(long lower_bound = 0, long upper_bound = 1);
   void set_element(int row, int col, const double &number);
-  double get_element(int row, int col) const;
+  double& at(int row, int col);
   void copy(const Matrix &matrix);
+  std::string to_string() const;
 
   // Creating special matrices
   static Matrix zeros(int order);

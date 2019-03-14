@@ -962,6 +962,24 @@ std::vector<std::vector<double> > Matrix::get_matrix() const {
   return matrix;
 }
 
+std::string Matrix::to_string() const {
+  if (!details_.is_init_) {
+    throw UninitializedMatrix();
+    return {};
+  }
+
+  std::string matrix_string{};
+
+  for (int i = 0; i < rows_; i++) {
+    for (int j = 0; j <cols_; j++) {
+      matrix_string += std::to_string(matrix_[i][j]) + " ";
+    }
+    matrix_string += "\n";
+  }
+
+  return matrix_string;
+}
+
 // Fills matrix with given arg number
 // Throws: UninitializedMatrix
 void Matrix::fill(const double &arg) {
@@ -1013,13 +1031,11 @@ void Matrix::set_element(int row, int col, const double &number) {
 // Returns number from the position defined by row and col arguments
 // Throws: UninitializedMatrix,
 //         MatrixOutOfBounds
-double Matrix::get_element(int row, int col) const {
+double& Matrix::at(int row, int col) {
   if (!details_.is_init_) {
     throw UninitializedMatrix();
-    return 0.0;
   } else if (row < 0 || row >= rows_ || col < 0 || col >= cols_) {
     throw MatrixOutOfBounds();
-    return 0.0;
   }
 
   return matrix_[row][col];
