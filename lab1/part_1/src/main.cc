@@ -7,7 +7,7 @@
 #include <thread>
 #include <cstdint>
 
-constexpr uint64_t NUMBER_OF_PROCESSES = 1000;
+constexpr uint64_t NUMBER_OF_PROCESSES = 100000;
 constexpr uint64_t NUMBER_OF_CPUS = 2;
 
 struct run_stats {

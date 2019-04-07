@@ -24,7 +24,7 @@ int main() {
       first_notified = true;
       first_var.notify_one();
     },
-    "", "Khomiak", ""
+    "1999", "Khomiak", "176"
   );
 
   auto second = std::thread(
@@ -39,7 +39,7 @@ int main() {
       second_notified = true;
       second_var.notify_one();
     },
-    "", "Yurii", ""
+    "0674589452", "Yurii", "poshta@gmail.com"
   );
 
   auto third = std::thread(
@@ -51,7 +51,7 @@ int main() {
       
       print_three(first, second, third);
     },
-    "", "Vasyliovych", ""
+    "KN-315", "Vasyliovych", "10.04"
   );
 
   first.join();

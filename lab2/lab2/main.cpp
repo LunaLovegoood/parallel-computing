@@ -17,8 +17,8 @@ void GetInputData(
   Matrix *A1,
   Matrix *b1,
   Matrix *c1,
-  Matrix *B2,
-  Matrix *C2
+  Matrix *A2,
+  Matrix *B2
 );
 void InputMatrix(Matrix *matrix, const char *matrix_name);
 Matrix Get_C2(std::size_t n);
@@ -30,7 +30,10 @@ int main() {
   std::cout << "Please enter n:" << std::endl;
   std::cin >> n;
 
-  Logger::getInstance().log(SolveEquation(n).to_string());
+  auto result = SolveEquation(n).to_string();
+  Logger::getInstance().log(result);
+
+  std::cout << result;
 
   system("pause");
   return 0;
@@ -55,7 +58,7 @@ Matrix SolveEquation(const std::size_t n) {
   // bi = (1 / (i*i + 1)) || bi = (1 / i)
   auto b_thread = std::thread([&] { b = Get_b(n); });
 
-  GetInputData(&A, &A1, &b1, &c1, &B2, &C2);
+  GetInputData(&A, &A1, &b1, &c1, &A2, &B2);
 
   C2_thread.join();
   b_thread.join();
@@ -129,8 +132,8 @@ void GetInputData(
   Matrix *A1,
   Matrix *b1,
   Matrix *c1,
-  Matrix *B2,            
-  Matrix *C2
+  Matrix *A2,            
+  Matrix *B2
 ) {
   char is_random_data = '\0';
   std::cout << "Random data (Y/N): ";
@@ -141,15 +144,15 @@ void GetInputData(
     A1->fill_random(0, 10);
     b1->fill_random(0, 10);
     c1->fill_random(0, 10);
+    A2->fill_random(0, 10);
     B2->fill_random(0, 10);
-    C2->fill_random(0, 10);
   } else {
     InputMatrix(A, "A");
     InputMatrix(A1, "A1");
     InputMatrix(b1, "b1");
     InputMatrix(c1, "c1");
+    InputMatrix(A2, "A2");
     InputMatrix(B2, "B2");
-    InputMatrix(C2, "C2");
   }
 }
 
