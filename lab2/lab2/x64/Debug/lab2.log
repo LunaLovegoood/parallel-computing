@@ -1,0 +1,9 @@
+﻿  main.cpp
+e:\study\programming\c++\parallel_computing\lab2\lab2\main.cpp(47): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+e:\study\programming\c++\parallel_computing\lab2\lab2\main.cpp(48): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+e:\study\programming\c++\parallel_computing\lab2\lab2\main.cpp(51): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+e:\study\programming\c++\parallel_computing\lab2\lab2\main.cpp(52): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+e:\study\programming\c++\parallel_computing\lab2\lab2\main.cpp(171): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+e:\study\programming\c++\parallel_computing\lab2\lab2\main.cpp(197): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+e:\study\programming\c++\parallel_computing\lab2\lab2\main.cpp(201): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+  lab2.vcxproj -> E:\Study\Programming\C++\parallel_computing\lab2\x64\Debug\lab2.exe

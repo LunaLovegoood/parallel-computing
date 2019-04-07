@@ -1,0 +1,13 @@
+﻿  logger.cpp
+  main.cpp
+e:\study\programming\c++\parallel_computing\lab2\lab2\main.cpp(47): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+e:\study\programming\c++\parallel_computing\lab2\lab2\main.cpp(48): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+e:\study\programming\c++\parallel_computing\lab2\lab2\main.cpp(51): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+e:\study\programming\c++\parallel_computing\lab2\lab2\main.cpp(52): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+e:\study\programming\c++\parallel_computing\lab2\lab2\main.cpp(171): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+e:\study\programming\c++\parallel_computing\lab2\lab2\main.cpp(197): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+e:\study\programming\c++\parallel_computing\lab2\lab2\main.cpp(201): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+  Generating code
+  All 775 functions were compiled because no usable IPDB/IOBJ from previous compilation was found.
+  Finished generating code
+  lab2.vcxproj -> E:\Study\Programming\C++\parallel_computing\lab2\x64\Release\lab2.exe

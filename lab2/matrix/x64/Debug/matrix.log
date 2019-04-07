@@ -1,0 +1,5 @@
+﻿  matrix.cpp
+e:\study\programming\c++\parallel_computing\lab2\matrix\matrix.cpp(98): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+  matrix_detail.cpp
+  Generating Code...
+  matrix.vcxproj -> E:\Study\Programming\C++\parallel_computing\lab2\x64\Debug\matrix.lib
