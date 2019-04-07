@@ -13,10 +13,20 @@ Matrix CreateMatrixA(std::size_t n);
 Matrix CreateMatrixB(std::size_t n);
 
 Matrix operator*(const Matrix &lhs, const Matrix &rhs);
+void IterateRows(
+  const Matrix &lhs, const Matrix &rhs,
+  Matrix &result,
+  std::size_t row = 0
+);
+void IterateColumns(
+  const Matrix &lhs, const Matrix &rhs,
+  Matrix &result, std::size_t row,
+  std::size_t col = 0
+);
 double CalculateElement(
   const Matrix &lhs, const Matrix &rhs,
   std::size_t row, std::size_t col,
-  std::size_t current = 0
+  std::size_t k = 0
 );
 
 std::ostream& operator<<(std::ostream &stream, const Matrix &matrix);
@@ -80,24 +90,46 @@ Matrix operator*(const Matrix &lhs, const Matrix &rhs) {
   auto n = lhs.size();
   auto result = CreateMatrix(n);
 
-  for (std::size_t i = 0; i < n; ++i) {
-    for (std::size_t j = 0; j < n; ++j) {
-      result[i][j] = CalculateElement(lhs, rhs, i, j);
-    }
-  }
+  IterateRows(lhs, rhs, result);
 
   return result;
+}
+
+void IterateRows(
+  const Matrix &lhs, const Matrix &rhs,
+  Matrix &result,
+  std::size_t row
+) {
+  if (row >= lhs.size()) {
+    return;
+  }
+  IterateColumns(lhs, rhs, result, row);
+  IterateRows(lhs, rhs, result, row + 1);
+}
+
+void IterateColumns(
+  const Matrix &lhs, const Matrix &rhs,
+  Matrix &result, std::size_t row,
+  std::size_t col
+) {
+  if (col >= lhs.size()) {
+    return;
+  }
+
+  result[row][col] = CalculateElement(lhs, rhs, row, col);
+  IterateColumns(lhs, rhs, result, row, col + 1);
 }
 
 double CalculateElement(
   const Matrix &lhs, const Matrix &rhs,
   std::size_t row, std::size_t col,
-  std::size_t current
+  std::size_t k
 ) {
-  return (current < lhs.size()
-      ? lhs[row][current] * rhs[current][col]
-          + CalculateElement(lhs, rhs, row, col, current + 1)
-      : 0.0);
+  if (k >= lhs.size()) {
+    return 0.0;
+  }
+  return (lhs[row][k] * rhs[k][col]
+      + CalculateElement(lhs, rhs, row, col, k + 1));
 }
 
 std::ostream& operator<<(std::ostream &stream, const Matrix &matrix) {
